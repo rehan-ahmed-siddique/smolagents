@@ -1,6 +1,5 @@
 import streamlit as st
-from smolagents import load_tool, DuckDuckGoSearchTool
-from smolagents.models import HfApiModel
+from smolagents import load_tool, DuckDuckGoSearchTool, InferenceClientModel
 import base64
 
 # Load tools
@@ -11,8 +10,8 @@ image_tool = load_tool(
 )
 search_tool = DuckDuckGoSearchTool()
 
-# Load model
-model = HfApiModel("Qwen/Qwen2.5-72B-Instruct")
+# Load model - UPDATED LINE
+model = InferenceClientModel("Qwen/Qwen2.5-72B-Instruct")
 
 # Save image in memory
 def display_image(b64_string):
