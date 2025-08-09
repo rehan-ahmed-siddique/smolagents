@@ -1,16 +1,12 @@
-"""
-Smolagents: Smart AI Assistant with Live Image + Web Search (Streamlit)
-Generates an image or searches for info depending on query.
-"""
-
 import streamlit as st
-from smolagents import load_tool, DuckDuckGoSearchTool, HfApiModel
+from smolagents import load_tool, DuckDuckGoSearchTool
+from smolagents.models import HfApiModel
 import base64
 
 # Load tools
 image_tool = load_tool(
-    "m-ric/text-to-image", 
-    trust_remote_code=True, 
+    "m-ric/text-to-image",
+    trust_remote_code=True,
     name="image_generator"
 )
 search_tool = DuckDuckGoSearchTool()
@@ -29,7 +25,7 @@ def is_image_query(prompt: str) -> bool:
     return any(k in prompt.lower() for k in keywords)
 
 # UI
-st.title("🖼 Smolagents AI Assistant")
+st.title("Smolagents AI Assistant")
 query = st.text_input("Enter your query:")
 
 if st.button("Run"):
