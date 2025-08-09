@@ -1,0 +1,3 @@
+streamlit
+smolagents
+huggingface_hub
